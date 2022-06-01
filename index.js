@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
 const fs = require('fs');
+//const { title } = require('process');
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -9,24 +10,13 @@ const questions = [
         name: 'title',
         message: 'what is the name of your project? ',
         validate: value => {if(value){return true;} else{console.log('what is the name of your project');}}
+        
     },
     {
         type: 'input',
-        name: 'why',
-        message: 'why did you build this project?',
-        validate: value => {if(value){return true;} else{console.log('why did you build this project?');}}
-    },
-    {
-        type: 'input',
-        name: 'what',
-        message: 'what does this project do?',
-        validate: value => {if(value){return true;} else{console.log('what does this project do?');}}
-    },
-    {
-        type: 'input',
-        name: 'how',
-        message: 'what did you use to build this project?',
-        validate: value => {if(value){return true;} else{console.log('what did you use to build this project');}}
+        name: 'description',
+        message: 'Provide a short description explaining the what, why, and how of your project.',
+        validate: value => {if(value){return true;} else {console.log('Provide a short description explaining the what, why, and how of your project.');}}
     },
     {
         type: 'input',
@@ -51,12 +41,27 @@ const questions = [
         name: 'email',
         message: 'enter your email address',
         validate: value => {if(value){return true;}else{console.log('enter your email address');}}
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Provide instructions and examples for use.'
+    },
+    {
+        type: 'input',
+        name: 'contriubtion',
+        message: 'List your collaborators, if any'
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'Any tests written for your application'
     }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(`./dist/${fileName}-README.md`, data,(err)=>{
+    fs.writeFile(`./dist/${fileName}.md`, data,(err)=>{
         if(err){
             console.log(err);
         }
@@ -72,7 +77,7 @@ function init() {
 // Function call to initialize app
 init()
 .then(answer => generateMarkdown(answer))
-.then(readMeFile => writeToFile("readme", readMeFile))
+.then(readMeFile => writeToFile('GEN-README', readMeFile))
 .catch(err => {
     console.log(err);
 });

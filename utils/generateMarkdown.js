@@ -46,12 +46,10 @@ function generateMarkdown(data) {
   
   
   ## Description
-  ${data.what}
-  ${data.why}
-  ${data.how}
+ ${data.description}
 
   ## Usage
-
+  ${data.usage}
 
   ## Installation
   ${data.installation}
@@ -60,13 +58,15 @@ function generateMarkdown(data) {
   ${renderLicenseSection(data.license)}
 
   ## Contributing
+  ${data.contribution}
 
   ## Tests
+  ${data.test}
 
   ## Questions
   [github](https://github.com/${data.github})
   
-  for further questions contact [email](https://${data.email})
+  for further questions contact ${data.email}
 
 
 `;
