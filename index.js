@@ -49,7 +49,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'contriubtion',
+        name: 'contribution',
         message: 'List your collaborators, if any'
     },
     {

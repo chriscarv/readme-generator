@@ -61,7 +61,7 @@ function generateMarkdown(data) {
   ${data.contribution}
 
   ## Tests
-  ${data.test}
+  ${data.tests}
 
   ## Questions
   [github](https://github.com/${data.github})
