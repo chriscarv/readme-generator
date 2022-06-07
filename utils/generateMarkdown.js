@@ -26,7 +26,7 @@ function renderLicenseSection(license) {
   if(license === 'none'){
     return 'no license used ';
   } else {
-    return `this project uses the ${renderLicenseLink(license)} license 
+    return `this project is covered under the ${renderLicenseLink(license)} license 
     `
   }
 }
